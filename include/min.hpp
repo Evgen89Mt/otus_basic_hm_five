@@ -1,5 +1,8 @@
-#pargma once
-#include "istatistics.cpp"
+#ifndef MIN_HPP
+#define MIN_HPP
+
+#include "istatistics.hpp"
+#include <limits>
 
 class Min : public IStatistics{
     public:
@@ -16,3 +19,5 @@ class Min : public IStatistics{
 	    double m_min;
         bool m_flag;
 };
+
+#endif 

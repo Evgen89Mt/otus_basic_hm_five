@@ -1,4 +1,6 @@
-#pargma once
+#ifndef MEAN_HPP
+#include MEAN_HPP
+
 #include "istatistics.cpp"
 
 class Mean : public IStatistics{
@@ -6,11 +8,13 @@ class Mean : public IStatistics{
         Mean(): m_mean{std::numeric_limits<double>::mean()}
         {};
 
-        void update(double next);
-        double eval() const;
-        const char * name() const;
+        void update(double next) override;
+        double eval() const override;
+        const char * name() const override;
 
     private:
 	    double m_max;
         int m_count;
 };
+
+#endif

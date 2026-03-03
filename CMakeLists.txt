@@ -6,10 +6,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(${PROJECT_NAME}
-    main.cpp
-    istatistics.cpp
-    min.cpp
-    manager.cpp
+    src/main.cpp
+    # src/istatistics.cpp
+    src/min.cpp
+    # src/max.cpp
+    src/manager.cpp
 )
 
 target_include_directories(${PROJECT_NAME}

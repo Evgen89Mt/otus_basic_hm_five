@@ -1,4 +1,6 @@
-#pargma once
+#ifndef MAX_HPP
+#include MAX_HPP
+
 #include "istatistics.cpp"
 
 class Max : public IStatistics{
@@ -13,3 +15,5 @@ class Max : public IStatistics{
     private:
 	    double m_max;
 };
+
+#endif
