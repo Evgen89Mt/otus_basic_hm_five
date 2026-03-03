@@ -1,20 +1,21 @@
 #ifndef MEAN_HPP
-#include MEAN_HPP
+#define MEAN_HPP
 
-#include "istatistics.cpp"
+#include "istatistics.hpp"
+#include <cstddef>
 
 class Mean : public IStatistics{
     public:
-        Mean(): m_mean{std::numeric_limits<double>::mean()}
-        {};
+
+        Mean();
 
         void update(double next) override;
         double eval() const override;
         const char * name() const override;
 
     private:
-	    double m_max;
-        int m_count;
+	    double  m_sum;
+        size_t  m_count;
 };
 
 #endif

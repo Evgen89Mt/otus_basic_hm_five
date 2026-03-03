@@ -7,10 +7,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
-    # src/istatistics.cpp
     src/min.cpp
-    # src/max.cpp
+    src/max.cpp
     src/manager.cpp
+    src/mean.cpp
+    
+    
 )
 
 target_include_directories(${PROJECT_NAME}

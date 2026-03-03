@@ -1,5 +1,5 @@
-#ifdef ISTATISTICS_HPP
-#include ISTATISTICS_HPP 
+#ifndef ISTATISTICS_HPP
+#define ISTATISTICS_HPP 
 
 class IStatistics {
 public:

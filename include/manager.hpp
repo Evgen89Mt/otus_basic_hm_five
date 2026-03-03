@@ -13,13 +13,14 @@
 
 class Manager{
     public:
-        Manager() = default;
+        Manager();
 
         void loadFile(const std::string& file);
         void viewResult() const;
+
     private:
         Min m_min;
-        // Max m_max;
-        // Mean m_mean;
+        Max m_max;
+        Mean m_mean;
 };
 #endif

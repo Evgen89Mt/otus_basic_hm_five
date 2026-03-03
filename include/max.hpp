@@ -1,12 +1,12 @@
 #ifndef MAX_HPP
-#include MAX_HPP
+#define MAX_HPP
 
-#include "istatistics.cpp"
+#include "istatistics.hpp"
+#include <limits>
 
 class Max : public IStatistics{
     public:
-        Max(): m_max{std::numeric_limits<double>::max()}
-        {};
+        Max();
 
         void update(double next) override;
         double eval() const override;
@@ -14,6 +14,7 @@ class Max : public IStatistics{
 
     private:
 	    double m_max;
+        bool   m_flag;
 };
 
 #endif

@@ -10,26 +10,27 @@ void Manager::loadFile(const std::string& file){
         return;
     }
 
-    std::ifstream file(file);
+    std::ifstream fin(file);
 
-    if(!file.is_open()){
+    if(!fin.is_open()){
         std::cout << std::boolalpha << "[Manager::loadFile]Error: file is not open." << std::endl;
         return;
     }
 
     double temp;
 
-    while(file >> temp){
+    while(fin >> temp){
         m_min.update(temp);
-        // m_max.update(temp);
-        // m_mean.update(temp);
+        m_max.update(temp);
+        m_mean.update(temp);
     }
 
-    file.close();
+    fin.close();
 }
 
 void Manager::viewResult() const{
-    std::cout << m_min.name() << m_min.eval() << std::endl;
-    // std::cout << m_max.name() << m_max.eval() << std::endl;
-    // std::cout << m_mean.name() << m_mean.eval() << std::endl;
+    std::cout << "-----------------------------------" << std::endl;
+    std::cout << m_min.name() <<" = "<< m_min.eval() << std::endl;
+    std::cout << m_max.name() <<" = "<< m_max.eval() << std::endl;
+    std::cout << m_mean.name() << " = " << m_mean.eval() << std::endl;
 }
