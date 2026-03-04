@@ -17,6 +17,10 @@ void Manager::loadFile(const std::string& file){
         return;
     }
 
+    //
+    // тут нужен парсинг с проверкой
+    //
+    
     double temp;
 
     while(fin >> temp){
