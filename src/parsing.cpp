@@ -28,15 +28,15 @@ bool Parsing::writeToFile(std::string& file, std::vector<std::string>& date){
 }
 
 bool Parsing::readFromFile(std::string& file, std::vector<std::string>& date){
-    if(date.empty()){
-        std::cout << "[Parsing::writeToFile] Error: container is empty." << std::endl;
+    if(file.empty()){
+        std::cout << "[Parsing::readFromFile] Error: string file is empty." << std::endl;
         return false;
     }
-        std::fstream fin;
+    std::fstream fin;
     fin.open(file, std::fstream::in);
 
     if(!fin.is_open()){
-        std::cout << std::boolalpha << "[Parsing::writeToFile]Error: file is not open, status >> " << fin.is_open() << std::endl;
+        std::cout << std::boolalpha << "[Parsing::readFromFile]Error: file is not open, status >> " << fin.is_open() << std::endl;
         return false;
     }
 
@@ -47,7 +47,67 @@ bool Parsing::readFromFile(std::string& file, std::vector<std::string>& date){
     }
 
     if(date.empty()){
-        std::cout << "[Parsing::writeToFile] Error, container (vector) is empty." << std::endl;
+        std::cout << "[Parsing::readFromFile] Error, container (vector) is empty." << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
+bool Parsing::write(const std::vector<std::string>& date){
+    if(date.empty()){
+        std::cout << "[Parsing::write] Error: container is empty." << std::endl;
+        return false;
+    }
+
+    std::fstream fout;
+    fout.open(m_file, std::fstream::out | std::fstream::app);
+
+    if(!fout.is_open()){
+        std::cout << std::boolalpha << "[Parsing::write]Error: file is not open, status >> " << fout.is_open() << std::endl;
+        return false;
+    }
+
+    for(const auto str : date){
+        fout << str;
+        fout << ' ';
+    }
+
+    return true;
+}
+std::vector<std::string> Parsing::getWords(const std::vector<std::string>& lines
+, char split_token){
+    if(lines.empty()){
+        std::cout << "[Parsing::getWords]Error: lines is empty." << std::endl;
+        return std::vector<std::string>{};
+    }
+
+    // TO DO
+
+    return std::vector<std::string>{};
+}
+
+bool Parsing::read(){
+    if(m_file.empty()){
+        std::cout << "[Parsing::read] Error: string file is empty." << std::endl;
+        return false;
+    }
+    std::fstream fin;
+    fin.open(m_file, std::fstream::in);
+
+    if(!fin.is_open()){
+        std::cout << std::boolalpha << "[Parsing::read]Error: file is not open, status >> " << fin.is_open() << std::endl;
+        return false;
+    }
+
+    std::string line;
+
+    for(;std::getline(fin, line);){
+        m_lines.push_back(line);
+    }
+
+    if(m_lines.empty()){
+        std::cout << "[Parsing::read] Error: container (vector) is empty." << std::endl;
         return false;
     }
 
