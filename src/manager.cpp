@@ -1,12 +1,15 @@
 #include "manager.hpp"
 
-Manager::Manager(){
+Manager::Manager(){}
 
-}
 
 void Manager::loadFile(const std::string& file){
     if(file.empty()){
         std::cout << "[Manager::loadFile]Error: string file is empty." << std::endl;
+        return;
+    }
+
+    if(!m_parsing.setFileName(file)){
         return;
     }
 
@@ -18,7 +21,7 @@ void Manager::loadFile(const std::string& file){
     }
 
     //
-    // тут нужен парсинг с проверкой
+    //TO DO
     //
     
     double temp;

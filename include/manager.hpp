@@ -16,7 +16,6 @@
 class Manager{
     public:
         Manager();
-
         void loadFile(const std::string& file);
         void viewResult() const;
 
