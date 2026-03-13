@@ -3,7 +3,7 @@
 bool Parsing::setFileName(const std::string& file){
     if(file.empty()){
         std::cout << "[Parsing::setFileName]Error: string is empty."<< std::endl;
-        return;
+        return false;
     }
     m_file = file;
 
@@ -65,7 +65,7 @@ bool Parsing::readFromFile(std::string& file, std::vector<std::string>& date){
 }
 
 std::vector<std::string> Parsing::readFileWords(){
-    if(readFileLines()){
+    if(!readFileLines()){
         std::cout << "[Parsing::readFileWords]Error: readFileLines" << std::endl;
         return std::vector<std::string>{""};
     }
@@ -161,3 +161,54 @@ bool Parsing::readFileLines(){
 
     return true;
 }
+
+bool Parsing::stringToDouble(const std::string& str, double& result){
+    if(str.empty()){
+        std::cout << "[Parsing::stringToDouble]Error: sring is empty." << std::endl;
+        return false;
+    }
+
+    char* end;
+    double val = std::strtod(str.c_str(), &end);
+
+    if(end == str.c_str()){
+        std::cout << "[Parsing::stringToDouble] Error: no conversion for \"" << str << "\"" << std::endl;
+        return false;
+    }
+
+    if (*end != '\0') {
+        std::cout << "[Parsing::stringToDouble] Error: trailing characters after number: \"" << end << "\"" << std::endl;
+        return false;
+    }
+
+    result = val;
+
+    return true; 
+}
+
+std::vector<double> Parsing::getValuesDouble(){
+    
+    readFileWords();
+
+    if(m_words.empty()){
+        std::cout << "[Parsing::getValuesDouble]Error: strings container <vector> is empty." << std::endl;
+        return std::vector<double> {};
+    }
+
+    std::vector<double> tmp;
+
+    for(const auto str : m_words){
+        double result;
+        if(stringToDouble(str, result)){
+            tmp.push_back(result);
+        }
+    }
+
+    if(tmp.empty()){
+        std::cout << "[Parsing::getValuesDouble]Error: container<vector> double is empty." << std::endl;
+        return std::vector<double> {};
+    }
+
+    return tmp;
+}
+

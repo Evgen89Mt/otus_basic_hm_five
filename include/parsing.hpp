@@ -17,6 +17,7 @@ class Parsing{
         bool setFileName(const std::string& file);
         std::vector<std::string> readFileWords();
         bool writeFile(const std::vector<std::string>& date);
+        std::vector<double> getValuesDouble();
 
         bool writeToFile(std::string& file, std::vector<std::string>& date);
         bool readFromFile(std::string& file, std::vector<std::string>& date);
@@ -24,6 +25,7 @@ class Parsing{
     private:
         bool readFileLines();
         std::vector<std::string> parsingLine(std::string& line, char split_token = ' ');
+        bool stringToDouble(const std::string& str, double& result);
 };
 
 

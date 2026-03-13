@@ -16,7 +16,8 @@
 class Manager{
     public:
         Manager();
-        void loadFile(const std::string& file);
+        void setNameFile(const std::string& file);
+        void start();
         void viewResult() const;
 
     private:
@@ -25,5 +26,7 @@ class Manager{
         Mean m_mean;
 
         Parsing m_parsing;
+        std::string m_file;
+        std::vector<double> m_values;
 };
 #endif

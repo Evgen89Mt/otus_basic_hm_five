@@ -11,8 +11,7 @@ add_executable(${PROJECT_NAME}
     src/max.cpp
     src/manager.cpp
     src/mean.cpp
-    
-    
+    src/parsing.cpp
 )
 
 target_include_directories(${PROJECT_NAME}

@@ -3,8 +3,8 @@
 int main(int argc, char* argv[]){
 
     Manager manager;
-    manager.loadFile("../statistics.txt");      //Parsing TO DO
-    manager.viewResult();
+    manager.setNameFile("../statistics.txt");
+    manager.start();
 
     return 0;
 }

@@ -3,36 +3,33 @@
 Manager::Manager(){}
 
 
-void Manager::loadFile(const std::string& file){
+void Manager::setNameFile(const std::string& file){
     if(file.empty()){
+        std::cout << "[Manager::setNameFile]Error: string file is empty." << std::endl;
+        return;
+    }
+
+    m_file = file;
+}
+
+void Manager::start(){
+    if(m_file.empty()){
         std::cout << "[Manager::loadFile]Error: string file is empty." << std::endl;
         return;
     }
 
-    if(!m_parsing.setFileName(file)){
+    if(!m_parsing.setFileName(m_file)){
         return;
     }
 
-    std::ifstream fin(file);
-
-    if(!fin.is_open()){
-        std::cout << std::boolalpha << "[Manager::loadFile]Error: file is not open." << std::endl;
-        return;
+    m_values = m_parsing.getValuesDouble();
+    for(const auto val : m_values){
+        m_min.update(val);
+        m_max.update(val);
+        m_mean.update(val);
     }
 
-    //
-    //TO DO
-    //
-    
-    double temp;
-
-    while(fin >> temp){
-        m_min.update(temp);
-        m_max.update(temp);
-        m_mean.update(temp);
-    }
-
-    fin.close();
+    viewResult();
 }
 
 void Manager::viewResult() const{
