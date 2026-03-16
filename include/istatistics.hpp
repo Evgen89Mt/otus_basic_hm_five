@@ -1,4 +1,4 @@
-#ifndef ISTATISTICS_HPP
+#ifdef ISTATISTICS_HPP
 #define ISTATISTICS_HPP 
 
 class IStatistics {
