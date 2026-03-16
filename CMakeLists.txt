@@ -12,6 +12,9 @@ add_executable(${PROJECT_NAME}
     src/manager.cpp
     src/mean.cpp
     src/parsing.cpp
+    src/percentile90.cpp
+    src/percentile95.cpp
+    src/std.cpp
 )
 
 target_include_directories(${PROJECT_NAME}

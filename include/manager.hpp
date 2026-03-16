@@ -10,6 +10,9 @@
 #include "min.hpp"
 #include "max.hpp"
 #include "mean.hpp"
+#include "std.hpp"
+#include "percentile90.hpp"
+#include "percentile95.hpp"
 
 #include "parsing.hpp"
 
@@ -24,6 +27,9 @@ class Manager{
         Min m_min;
         Max m_max;
         Mean m_mean;
+        Std m_std;
+        Percentile90 m_pct90;
+        Percentile95 m_pct95;
 
         Parsing m_parsing;
         std::string m_file;
