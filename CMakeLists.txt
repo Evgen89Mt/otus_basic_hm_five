@@ -11,7 +11,7 @@ add_executable(${PROJECT_NAME}
     src/max.cpp
     src/manager.cpp
     src/mean.cpp
-    src/parsing.cpp
+    # src/parsing.cpp
     src/percentile90.cpp
     src/percentile95.cpp
     src/std.cpp
